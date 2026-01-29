@@ -1,0 +1,329 @@
+{
+  "info": {
+    "_postman_id": "617244f4-072e-4c20-a831-6b8d34a9963f",
+    "name": "Trello",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40840112"
+  },
+  "item": [
+    {
+      "name": "Get All Boards",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Connection check\", () => {\r",
+              "pm.response.to.have.status(200)\r",
+              "\r",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/1/members/me/boards?key={{Trello-API}}&token={{Trello-Token}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "1",
+            "members",
+            "me",
+            "boards"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{Trello-API}}"
+            },
+            {
+              "key": "token",
+              "value": "{{Trello-Token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Board",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/1/boards/?name=VPK_Board0223&key={{Trello-API}}&token={{Trello-Token}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            ""
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "VPK_Board0223"
+            },
+            {
+              "key": "key",
+              "value": "{{Trello-API}}"
+            },
+            {
+              "key": "token",
+              "value": "{{Trello-Token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Board",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseURL}}/boards/:id",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "boards",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "696f2dfc63a54269b73b066e"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create List",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/1/lists?name=TBC&idBoard=696f2dfc63a54269b73b066e&key={{API_Key}}&token={{Trelleo_Token}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "1",
+            "lists"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "TBC"
+            },
+            {
+              "key": "idBoard",
+              "value": "696f2dfc63a54269b73b066e"
+            },
+            {
+              "key": "key",
+              "value": "{{API_Key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{Trelleo_Token}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Card",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/1/cards?idList=696f33a31f49f44332c19e88&key={{API_Key}}&token={{Trelleo_Token}}&name=New",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "1",
+            "cards"
+          ],
+          "query": [
+            {
+              "key": "idList",
+              "value": "696f33a31f49f44332c19e88"
+            },
+            {
+              "key": "key",
+              "value": "{{API_Key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{Trelleo_Token}}"
+            },
+            {
+              "key": "name",
+              "value": "New"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Move Card",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/1/cards/:id?key={{API_Key}}&token={{Trelleo_Token}}&idList=696f338856ccd6ef222567ff",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "1",
+            "cards",
+            ":id"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{API_Key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{Trelleo_Token}}"
+            },
+            {
+              "key": "idList",
+              "value": "696f338856ccd6ef222567ff"
+            }
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "696f49f6079bf51598d13654"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Board",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/1/boards/:id?key={{API_Key}}&token={{Trelleo_Token}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "1",
+            "boards",
+            ":id"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "{{API_Key}}"
+            },
+            {
+              "key": "token",
+              "value": "{{Trelleo_Token}}"
+            }
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "696f275fd4a426d8048f398d"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "https://api.trello.com"
+    },
+    {
+      "key": "Trello-API",
+      "value": "47a17453738b73160eabf7b83b18046c"
+    },
+    {
+      "key": "Trello-Token",
+      "value": "ATTA77db15e18c4483b00d0a937a908c721ffec4cc8c11941892055b7559caee76b353A789BB"
+    }
+  ]
+}
